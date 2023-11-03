@@ -48,11 +48,11 @@ class create_users_API(APIView):
                     city=serializer.validated_data['city'],
                     PhoneNumber=request.data['PhoneNumber'],
                     is_active = True,
-                    # Location = Location.objects.get(id = request.data['Location'])
+
                 )
             if user:
                 # Cart.objects.create(user=user,)
-                return Response("User & Cart are Created Successfully", status = status.HTTP_200_OK)
+                return Response("User Created Successfully", status = status.HTTP_200_OK)
             else:
                 return Response("Error Creating User", status = status.HTTP_403_FORBIDDEN)
         else:

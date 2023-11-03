@@ -21,8 +21,6 @@ class Vendor(models.Model):
     active = models.BooleanField(default=True)
 
 
-    
-
     def __str__(self):
         return str(self.Name)
     class Meta:

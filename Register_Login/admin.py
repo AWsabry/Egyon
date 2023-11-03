@@ -1,4 +1,4 @@
-from Register_Login.models import Profile,Team_Member
+from Register_Login.models import Profile
 from django.contrib import admin
 from firebase_admin import messaging
 from django.forms import CheckboxSelectMultiple
@@ -9,7 +9,7 @@ from django.db import models
 
 
 
-class Register(admin.ModelAdmin):
+class profile_admin(admin.ModelAdmin):
     list_filter = ("email","first_name", "last_name", "last_modified")
     list_display = ("email","first_name", 'last_name','last_modified','PhoneNumber','is_active','id'
                   )
@@ -20,22 +20,6 @@ class Register(admin.ModelAdmin):
 
 
 
-class Team_Admin(admin.ModelAdmin):
-    model = Team_Member
-    list_display = ('first_name','last_name','email','PhoneNumber')
-
-
-
-
-
-
-class Event_Admin(admin.ModelAdmin):
-    list_display = ('email', "Organization", 'PhoneNumber','date','created')
-
-
-
-
-admin.site.register(Profile, Register)
-admin.site.register(Team_Member, Team_Admin)
+admin.site.register(Profile, profile_admin)
 
 

@@ -69,37 +69,3 @@ class Profile(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email
-
-
-class Newsletter(models.Model):
-    email = models.EmailField(max_length=500, blank=True)
-    def __str__(self):
-        return self.email
-
-
-
-
-
-
-class Team_Member(models.Model):
-    email = models.EmailField(verbose_name='email address', unique=True)
-    first_name = models.CharField(max_length=50, null=True,blank = True)
-    last_name = models.CharField(max_length=50, null=True,blank = True)
-    is_active = models.BooleanField(default=True,blank = True)
-    profile_pic = models.ImageField(
-        upload_to="Team", blank=True, )
-    job_title = models.CharField(max_length=100, null=True,blank = True)
-    Facebook_Link = models.CharField(max_length=500, null=True,blank = True)
-    LinkedInLink = models.CharField(max_length=500, null=True,blank = True)
-    nu_id = models.CharField(max_length=60, null=True,blank = True)
-    school = models.CharField(max_length=60, null=True,blank = True)
-    PhoneNumber =  models.CharField(max_length=20, null=True,blank = True)
-    last_modified = models.DateTimeField(auto_now=True,blank = True)
-    # ProfilePic = models.ImageField(upload_to="profile/", null=True)
-
-    def __str__(self):
-        return self.email
-    class Meta:
-        verbose_name_plural = "Team members"
-
-
